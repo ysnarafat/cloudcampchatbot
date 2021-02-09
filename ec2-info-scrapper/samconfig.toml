@@ -1,0 +1,10 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "lex-as-code"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-3dx5a2e9k299"
+s3_prefix = "lex-as-code"
+region = "us-east-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
