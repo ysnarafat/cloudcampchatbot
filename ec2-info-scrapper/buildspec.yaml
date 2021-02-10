@@ -16,6 +16,8 @@ version: 0.2
 
 phases:
   install:
+    runtime_version: 
+      python: 3.8
     commands:
       # Use Install phase to install packages or any pre-reqs you may need throughout the build (e.g. dev deps, security checks, etc.)
       # - echo "[Install phase]"
@@ -29,8 +31,10 @@ phases:
       # - echo "[Build phase]"
       # We package the SAM template and create `packaged.yaml` file that will be used in our pipeline for deployment
       ## Here we separate Build from Deployment and segregate permissions for different steps
+      - pip install aws cli
+      - sam build
       - echo "Starting SAM packaging `date` in `pwd`"
-      - aws cloudformation package --template-file template.yaml --s3-bucket $BUILD_OUTPUT_BUCKET --output-template-file packaged.yaml
+      - aws cloudformation package --template-file template.yaml --s3-bucket $BUILD_OUTPUT_BUCKET 
   post_build:
     commands:
       # Use Post Build for notifications, git tags and any further customization after build
