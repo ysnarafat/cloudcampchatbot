@@ -63,7 +63,7 @@ def lambda_handler(event = NULL, context = NULL):
      
 #     #TXQ2XHODZE
 
-    
+    ## Added code to test pipeline of aws pipeline
     client = boto3.client('lexv2-models')
 
     response = client.create_bot(
